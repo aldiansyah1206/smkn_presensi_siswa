@@ -48,7 +48,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-success"></i>
+                                            <i class="fas fa-user-friends fa-2x text-success"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-user fa-2x text-info"></i>
+                                            <i class="fas fa-users fa-2x text-info"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-warning"></i>
+                                            <i class="fas fa-school  fa-2x text-warning"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-danger"></i>
+                                            <i class="fas fa-clipboard fa-2x text-danger"></i>
                                         </div>
                                     </div>
                                 </div>

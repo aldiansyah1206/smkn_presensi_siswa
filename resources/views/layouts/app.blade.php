@@ -93,7 +93,7 @@
                 <!-- Nav Item penjadwalan  -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{'/penjadwalan'}}">
-                        <i class="fas fa-clipboard-list"></i>
+                        <i class="fas fa-calendar"></i>
                         <span>Jadwal Kegiatan</span></a>
                 </li>
                 @endif

@@ -1,42 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-md-12 p-4">
+<div class="col-md-12 p-3">
     <h2>Rekap Presensi Siswa</h2> 
-
-    <!-- Filter bulan dan tombol ekspor -->
-    <form action="{{ route('presensi.rekap') }}" method="get" class="mb-4">
-        <div class="row align-items-end">
-            <div class="col-md-3">
-                <div class="form-group"> 
-                    <select name="month" id="month" class="form-control" onchange="this.form.submit()">   
-                        <option value="1" {{ $selectedMonth == 1 ? 'selected' : '' }}>Januari</option>
-                        <option value="2" {{ $selectedMonth == 2 ? 'selected' : '' }}>Februari</option>
-                        <option value="3" {{ $selectedMonth == 3 ? 'selected' : '' }}>Maret</option>
-                        <option value="4" {{ $selectedMonth == 4 ? 'selected' : '' }}>April</option>
-                        <option value="5" {{ $selectedMonth == 5 ? 'selected' : '' }}>Mei</option>
-                        <option value="6" {{ $selectedMonth == 6 ? 'selected' : '' }}>Juni</option>
-                        <option value="7" {{ $selectedMonth == 7 ? 'selected' : '' }}>Juli</option>
-                        <option value="8" {{ $selectedMonth == 8 ? 'selected' : '' }}>Agustus</option>
-                        <option value="9" {{ $selectedMonth == 9 ? 'selected' : '' }}>September</option>
-                        <option value="10" {{ $selectedMonth == 10 ? 'selected' : '' }}>Oktober</option>
-                        <option value="11" {{ $selectedMonth == 11 ? 'selected' : '' }}>November</option>
-                        <option value="12" {{ $selectedMonth == 12 ? 'selected' : '' }}>Desember</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <a href="{{ route('presensi.rekap', ['month' => $selectedMonth, 'export' => 'pdf']) }}" class="btn btn-success">
-                    <i class="fas fa-file-pdf me-1"></i> Ekspor PDF
-                </a>
-            </div>
-        </div>
-    </form>
-
+ 
     <div class="card shadow-sm mb-4">
         <div class="card-header bg-primary text-white">
-            <h5>Presensi Siswa Bulan {{ \Carbon\Carbon::create()->month($selectedMonth)->translatedFormat('F') }}</h5>
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <h5 class="mb-0">Presensi Siswa Bulan Ini</h5>
+                <form action="{{ route('presensi.rekap') }}" method="get" class="d-flex gap-2 align-items-center mt-2 mt-md-2 flex-wrap">
+                    <div class="form-group mb-0 ">
+                        <select name="month" id="month" class="form-control" onchange="this.form.submit()">   
+                            <option value="1" {{ $selectedMonth == 1 ? 'selected' : '' }}>Januari</option>
+                            <option value="2" {{ $selectedMonth == 2 ? 'selected' : '' }}>Februari</option>
+                            <option value="3" {{ $selectedMonth == 3 ? 'selected' : '' }}>Maret</option>
+                            <option value="4" {{ $selectedMonth == 4 ? 'selected' : '' }}>April</option>
+                            <option value="5" {{ $selectedMonth == 5 ? 'selected' : '' }}>Mei</option>
+                            <option value="6" {{ $selectedMonth == 6 ? 'selected' : '' }}>Juni</option>
+                            <option value="7" {{ $selectedMonth == 7 ? 'selected' : '' }}>Juli</option>
+                            <option value="8" {{ $selectedMonth == 8 ? 'selected' : '' }}>Agustus</option>
+                            <option value="9" {{ $selectedMonth == 9 ? 'selected' : '' }}>September</option>
+                            <option value="10" {{ $selectedMonth == 10 ? 'selected' : '' }}>Oktober</option>
+                            <option value="11" {{ $selectedMonth == 11 ? 'selected' : '' }}>November</option>
+                            <option value="12" {{ $selectedMonth == 12 ? 'selected' : '' }}>Desember</option>
+                        </select>
+                    </div>
+                    <div class="ml-2 mb-2 mb-md-0">
+                        <a href="{{ route('presensi.rekap', ['month' => $selectedMonth, 'export' => 'pdf']) }}" class="btn btn-success">
+                            <i class="fas fa-file-pdf me-1"></i> Ekspor PDF
+                        </a>
+                    </div>
+                </form>
+            </div>
         </div>
+        
+        
         <div class="card-body">
             <div class="table-responsive">
                 @if($presensi->isEmpty())

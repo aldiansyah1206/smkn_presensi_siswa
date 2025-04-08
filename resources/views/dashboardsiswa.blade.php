@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Dashboard Siswa')
 @section('content')
             <!-- Pesan Sukses atau Error -->
  @if (session('success'))

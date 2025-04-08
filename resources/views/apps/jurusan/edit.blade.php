@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', 'Tambah Edit Jurusan')
+ 
 @section('content')
 <div class="row">
     <div class="col-lg-6">

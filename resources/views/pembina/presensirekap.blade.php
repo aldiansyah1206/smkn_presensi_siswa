@@ -1,13 +1,11 @@
 @extends('layouts.app')
-
+@section('title', 'Rekap Presensi Siswa')
 @section('content')
-<div class="col-md-12 p-3">
-    <h2>Rekap Presensi Siswa</h2> 
- 
+<div class="col-md-12 p-3"> 
     <div class="card shadow-sm mb-4">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-white ">
             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <h5 class="mb-0">Presensi Siswa Bulan Ini</h5>
+                <h5 class="mb-0">Rekap Presensi Siswa</h5>
                 <form action="{{ route('presensi.rekap') }}" method="get" class="d-flex gap-2 align-items-center mt-2 mt-md-2 flex-wrap">
                     <div class="form-group mb-0 ">
                         <select name="month" id="month" class="form-control" onchange="this.form.submit()">   
@@ -40,8 +38,8 @@
                 @if($presensi->isEmpty())
                     <p class="text-center"><strong>Belum ada data presensi bulan ini.</strong></p>
                 @else
-                    <table class="table table-striped align-middle">
-                        <thead class="table-dark">
+                    <table class="table table-bordered text-center align-middle">
+                        <thead class="table ">
                             <tr> 
                                 <th>No</th>
                                 <th>Nama Siswa</th>

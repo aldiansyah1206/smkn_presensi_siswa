@@ -1,10 +1,10 @@
 @extends('layouts.app')
-
+@section('title', 'Riwayat Presensi Siswa')  
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-lg-12">
-            <h3 class="mb-4">Riwayat Presensi</h3>
+             
 
             @if (session('success'))
                 <div class="alert alert-success" role="alert">
@@ -18,8 +18,8 @@
             @endif
 
             <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Daftar Presensi Anda</h5>
+                <div class="card-header bg-white">
+                    <h4 class="mb-0">Riwayat Presensi</h4>
                 </div>
                 <div class="card-body">
                     @if ($presensiHistory->isEmpty())

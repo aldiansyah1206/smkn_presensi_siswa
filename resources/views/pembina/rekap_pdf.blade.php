@@ -22,14 +22,14 @@
     </style>
 </head>
 <body> 
-    <h1>Rekap Presensi Siswa Bulan {{ \Carbon\Carbon::create()->month($selectedMonth)->translatedFormat('F') }}</h1>
+    <h2 >Rekap Presensi Siswa Bulan {{ \Carbon\Carbon::create()->month($selectedMonth)->translatedFormat('F') }}</h2>
     <div class="card-body">
         <div class="table-responsive"> 
             @if($presensi->isEmpty())
                 <p class="text-center"><strong>Belum ada data presensi bulan ini.</strong></p>
             @else
-                <table class="table table-striped align-middle">
-                    <thead class="table-dark">
+                <table class="table table-bordered align-middle">
+                    <thead class="table">
                         <tr>
                             <th>No</th>
                             <th>Nama Siswa</th>

@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Date;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Carbon;
+ 
 
 class PresensiController extends Controller
 { 
     public function index()
     {
+        Carbon::setLocale('id');
+
         $pembina = Auth::user()->pembina;
         $presensi = Presensi::with(['kegiatan', 'presensiSiswa.siswa'])
             ->where('pembina_id', $pembina->id) 
@@ -86,24 +90,7 @@ class PresensiController extends Controller
         ->get();
 
         return view('pembina.presensi_history', compact('presensi'));
-    }
-
-
-    public function exportPDF()
-    {
-        $pembina = Auth::user()->pembina;
-        $presensi = Presensi::with(['kegiatan', 'presensiSiswa.siswa'])
-            ->where('pembina_id', $pembina->id)
-            ->whereDate('tanggal', now()->toDateString())
-            ->orderBy('tanggal', 'desc')
-            ->get();
-
-        $pdf = Pdf::loadView('pembina.presensi_pdf', [
-            'presensi' => $presensi,
-        ]);
-
-        return $pdf->download('daftar_presensi_' . now()->format('Ymd') . '.pdf');
-    }
+    } 
 
     public function rekap(Request $request)
     { 
@@ -133,7 +120,7 @@ class PresensiController extends Controller
                 'siswa' => $siswa,
                 'selectedMonth' => $selectedMonth,
             ]);
-            return $pdf->download('rekap_presensi_siswa_bulan_' . \Carbon\Carbon::create()->month($selectedMonth)->translatedFormat('M') . '_' . now()->format('Ymd_His') . '.pdf');
+            return $pdf->download('rekap_presensi_siswa_bulan_' . \Carbon\Carbon::create()->month($selectedMonth)->translatedFormat('F') . '_' . now()->format('Ymd_His') . '.pdf');
         }
 
         return view('pembina.presensirekap', compact('presensi', 'dates', 'siswa', 'selectedMonth'));

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Penjadwalan Kegiatan')
 @section('content')
 <!-- Alert for Success or Error Message -->
 @if (session('success'))
